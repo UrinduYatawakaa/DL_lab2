@@ -1,1 +1,1 @@
-# DL_lab2
+# DeepLearningLab02

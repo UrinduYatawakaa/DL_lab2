@@ -1,0 +1,20 @@
+1. What happens when the number of hidden nodes increase?
+
+When the number of hidden nodes (units in the hidden layer, denoted as n_h) increases, the neural network becomes more expressive and capable of learning complex, non-linear patterns in the data. In this specific "flower" dataset (a planar, non-linearly separable set of points), a small number of hidden nodes (e.g., 1-2) results in a simple decision boundary, similar to logistic regression, which struggles to separate the classes effectively. As n_h increases to around 3-5, the model can capture the intricate "petal" shapes of the data, leading to a significant improvement in classification performance. Beyond that (e.g., 20-50 or more), the model can fit the training data even more closely, potentially leading to overfitting where it memorizes noise or specific points rather than general patterns. However, in this small dataset (400 examples), overfitting doesn't drastically reduce training accuracy—it tends to stabilize or fluctuate slightly due to the limited data and effective optimization (gradient descent with a learning rate of 1.2 and 10,000 iterations).
+
+2. Can you explain the pattern of the accuracy when the hidden nodes increase?
+
+Based on running the modified notebook (with tests for various n_h values), the accuracy on the training set follows a clear pattern:
+Hidden Nodes (n_h)Accuracy (%)
+1    67
+2    67
+3    91
+4    90
+5    91
+10   92
+20   91
+50   90
+Low n_h (1-2): Accuracy is around 67%. The network lacks sufficient capacity to model the non-linear separation, resulting in underfitting.
+Lower Medium n_h (3-5): Accuracy jumps dramatically to 90-91%. This is where the model gains enough complexity to approximate the flower-shaped boundary effectively, without excessive parameters.
+Higher Medium n_h(10): THis is where the highest accuracy shows.
+High n_h (20+): Accuracy plateaus around 90-91%, with minor fluctuations (e.g., slight drops due to optimization challenges or mild overfitting).
